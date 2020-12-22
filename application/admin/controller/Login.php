@@ -17,14 +17,14 @@ class Login extends Controller
                 'username|用户名' => 'require',
                 'password|密码' => 'require',
                 'code|验证码' => 'require'
-                //'code|验证码' => 'require|captcha'
+                //'code|验证码' => 'require|captcha:login'
             ];
             $res = $this->validate($params, $rule);
             if($res !== true){
                 return $this->error($res);
             }
             //验证码手动校验
-            if(!captcha_check($params['code'])){
+            if(!captcha_check($params['code'], 'login')){
                 return $this->error('验证码错误');
             }
             //查询管理员用户表
