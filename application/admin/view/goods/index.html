@@ -6,10 +6,10 @@
 
     <div class="well">
         <!-- search button -->
-        <form action="" method="get" class="form-search">
+        <form action="{:url('index')}" class="form-search">
             <div class="row-fluid" style="text-align: left;">
                 <div class="pull-left span4 unstyled">
-                    <p> 商品名称：<input class="input-medium" name="" type="text"></p>
+                    <p> 商品名称：<input class="input-medium" value="{$Request.param.keyword}" name="keyword" type="text"></p>
                 </div>
             </div>
             <button type="submit" class="btn">查找</button>
@@ -37,26 +37,19 @@
                     <td><a href="{:url('read',['id'=>$v.id],null)}">{$v.goods_name}</a></td>
                     <td>{$v.goods_price}</td>
                     <td>{$v.goods_number}</td>
-                    <td><img src="/static/admin/img/goods01_thumb.jpg"></td>
+                    <td><img src="{$v.goods_logo}"></td>
                     <td>{$v.create_time}</td>
                     <td>
-                        <a href="{:url('edit',['id'=>$v.id],null)}"> 编辑 </a>
-                        <a href="{:url('delete',['id'=>$v.id],null)}" onclick="return confirm('确认删除？')"> 删除 </a>
+                        <a href="{:url('admin/goods/edit',['id'=>$v.id],null)}"> 编辑 </a>
+                        <a href="{:url('admin/goods/delete',['id'=>$v.id],null)}" onclick="return confirm('确认删除？')"> 删除 </a>
                     </td>
                 </tr>
                 {/foreach}
             </tbody>
         </table>
         <!-- pagination -->
-        <div class="pagination">
-            <ul>
-                <li><a href="#">Prev</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">Next</a></li>
-            </ul>
+        <div class="">
+            {$list->render()}
         </div>
     </div>
 
