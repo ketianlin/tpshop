@@ -1,10 +1,7 @@
 <?php
-
 namespace app\admin\controller;
 
-use think\Controller;
-
-class Role extends Controller
+class Role extends Base
 {
     public function lst(){
         return view();

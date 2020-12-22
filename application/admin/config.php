@@ -9,5 +9,12 @@ return [
     ],
     'msg' => [
         'sys_err_msg' => '非法访问'
+    ],
+    //验证码配置
+    'captcha' => [
+        // 验证码位数
+        'length' => 4,
+        // 是否画混淆曲线
+        'useCurve' => false
     ]
 ];
