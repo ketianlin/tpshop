@@ -46,3 +46,5 @@ Route::group('home', function(){
 
 //参数  子域名 ， 对应的模块
 Route::domain('admin', 'admin');
+
+Route::resource('news', 'api/news');
